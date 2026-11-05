@@ -6,7 +6,7 @@ def clean_orders(rows):
     """Keep valid orders only, and add a total_amount to each."""
     cleaned = []
     for row in rows:
-        if row.get("qty", 0) <= 0 or row.get("price", 0) <= 0:
+        if row.get("price", 0) <= 0:
             continue
         cleaned.append({**row, "total_amount": row["qty"] * row["price"]})
     return cleaned
